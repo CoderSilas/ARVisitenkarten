@@ -82,12 +82,15 @@
       // URL, zu der weitergeleitet werden soll
       var url = "https://www.google.com";
 
-      // Event-Listener für Klick auf das Bild
-      document.getElementById('clickableImage').addEventListener('click', function () {
+      // Funktion zum Öffnen des Links
+      function openLink() {
         window.open(url, '_blank');
-      });
- 
+      }
 
+      // Event-Listener für Klick auf das Bild
+      var clickableImage = document.getElementById('clickableImage');
+      clickableImage.addEventListener('click', openLink);
+      clickableImage.addEventListener('touchstart', openLink);
 
 
       var marker = document.getElementById('marker');
