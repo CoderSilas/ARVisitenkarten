@@ -56,7 +56,6 @@
           position="0 0.5 0"
           scale="1 1 1"
           rotation="-90 0 0"
-          clickhandler
         ></a-image>
 
         <!-- 3D-Modell -->
@@ -79,19 +78,27 @@
     <script>
 
 
-     // Definieren Sie die `clickhandler` Komponente
-     AFRAME.registerComponent('clickhandler', {
-        init: function() {
-          this.el.addEventListener('click', function() {
-            var url = "https://www.google.com";
-            window.open(url, '_blank');
-          });
-          this.el.addEventListener('touchstart', function() {
-            var url = "https://www.google.com";
-            window.open(url, '_blank');
-          });
-        }
-      });
+    // Definieren Sie die `clickhandler` Komponente
+    AFRAME.registerComponent('clickhandler', {
+      init: function() {
+        this.el.addEventListener('click', function() {
+          var url = "https://www.google.com";
+          window.open(url, '_blank');
+        });
+        this.el.addEventListener('touchstart', function() {
+          var url = "https://www.google.com";
+          window.open(url, '_blank');
+        });
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var clickableImage = document.getElementById('clickableImage');
+      clickableImage.setAttribute('clickhandler', '');
+    });
+
+
+
 
       var marker = document.getElementById('marker');
       var model = document.getElementById('animatedModel');
