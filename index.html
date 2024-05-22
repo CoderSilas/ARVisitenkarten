@@ -56,6 +56,7 @@
           position="0 0.5 0"
           scale="1 1 1"
           rotation="-90 0 0"
+          clickhandler
         ></a-image>
 
         <!-- 3D-Modell -->
@@ -78,20 +79,19 @@
     <script>
 
 
-
-      // URL, zu der weitergeleitet werden soll
-      var url = "https://www.google.com";
-
-      // Funktion zum Öffnen des Links
-      function openLink() {
-        window.open(url, '_blank');
-      }
-
-      // Event-Listener für Klick auf das Bild
-      var clickableImage = document.getElementById('clickableImage');
-      clickableImage.addEventListener('click', openLink);
-      clickableImage.addEventListener('touchstart', openLink);
-
+     // Definieren Sie die `clickhandler` Komponente
+     AFRAME.registerComponent('clickhandler', {
+        init: function() {
+          this.el.addEventListener('click', function() {
+            var url = "https://www.google.com";
+            window.open(url, '_blank');
+          });
+          this.el.addEventListener('touchstart', function() {
+            var url = "https://www.google.com";
+            window.open(url, '_blank');
+          });
+        }
+      });
 
       var marker = document.getElementById('marker');
       var model = document.getElementById('animatedModel');
