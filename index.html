@@ -49,9 +49,19 @@
 
       <!-- Use a barcode marker with the 'preset' attribute -->
       <a-marker preset="hiro" id="marker">
+      <!-- Klickbares Bild -->
+        <a-image
+          id="clickableImage"
+          src="https://raw.githack.com/CoderSilas/ARVisitenkarten/main/Images/TrackingImage.jpg"
+          position="0 0.5 0"
+          scale="1 1 1"
+          rotation="-90 0 0"
+        ></a-image>
+
+        <!-- 3D-Modell -->
         <a-entity
         id="animatedModel"
-        gltf-model="https://raw.githack.com/CoderSilas/ARVisitenkarten/main/3D/Elsterkind3d.gltf"
+        gltf-model="https://raw.githack.com/CoderSilas/ARVisitenkarten/main/3D/scene.gltf"
             scale="1 1 1"
             position="0 0 0"
             rotation="-90 0 0"
@@ -66,6 +76,20 @@
 
 
     <script>
+
+
+
+      // URL, zu der weitergeleitet werden soll
+      var url = "https://www.google.com";
+
+      // Event-Listener für Klick auf das Bild
+      document.getElementById('clickableImage').addEventListener('click', function () {
+        window.open(url, '_blank');
+      });
+ 
+
+
+
       var marker = document.getElementById('marker');
       var model = document.getElementById('animatedModel');
       var animationActive = false;
